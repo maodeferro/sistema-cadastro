@@ -1,199 +1,130 @@
-* {
+<!DOCTYPE html>
 
-  box-sizing: border-box;
+<html lang="pt-BR">
 
-}
+<head>
 
- 
+  <meta charset="UTF-8">
 
-body {
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  margin: 0;
+  <title>Cadastro de Clientes</title>
 
-  padding: 24px;
+  <link rel="stylesheet" href="style.css">
 
-  font-family: Arial, sans-serif;
+</head>
 
-  background: #901eac;
+<body>
 
-  color: #855e97;
+  <main class="container">
 
-}
+    <h1>Cadastro de Clientes</h1>
 
- 
-
-.container {
-
-  max-width: 1000px;
-
-  margin: 0 auto;
-
-  padding: 28px;
-
-  background: hsl(51, 100%, 62%);
-
-  border-radius: 12px;
-
-  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
-
-}
+    <p class="descricao">Gerencie os dados dos clientes da empresa.</p>
 
  
 
-h1, h2 {
+    <form id="formCliente">
 
-  color: #174a78;
-
-}
+      <input type="hidden" id="clienteId">
 
  
 
-h1 { margin-top: 0; }
+      <div class="campo">
 
-.descricao { color: #64748b; }
+        <label for="nome">Nome completo</label>
+
+        <input type="text" id="nome" placeholder="Digite o nome" required>
+
+      </div>
+
+ 
+      <div class="campo">
+
+        <label for="cpf">CPF</label>
+
+        <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+
+      </div>
+
+      <div class="campo">
+
+        <label for="email">E-mail</label>
+
+        <input type="email" id="email" placeholder="exemplo@email.com" required>
+
+      </div>
 
  
 
-form {
+      <div class="campo">
 
-  display: grid;
+        <label for="telefone">Telefone</label>
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+        <input type="tel" id="telefone" placeholder="(00) 00000-0000">
 
-  gap: 14px;
-
-  margin: 24px 0 32px;
-
-}
+      </div>
 
  
 
-.campo {
+      <div class="campo">
 
-  display: flex;
+        <label for="cidade">Cidade</label>
 
-  flex-direction: column;
+        <input type="text" id="cidade" placeholder="Digite a cidade">
 
-  gap: 6px;
-
-}
+      </div>
 
  
 
-label { font-weight: bold; }
+      <div class="botoes">
+
+        <button type="submit" id="btnSalvar">Salvar cliente</button>
+
+        <button type="button" id="btnLimpar" class="secundario">Limpar</button>
+
+      </div>
+
+    </form>
 
  
 
-input {
+    <section class="lista">
 
-  width: 100%;
+      <h2>Clientes cadastrados</h2>
 
-  padding: 11px;
+      <input type="search" id="pesquisa" placeholder="Pesquisar por nome ou e-mail">
 
-  border: 1px solid #cbd5e1;
+      <div class="tabela-responsiva">
 
-  border-radius: 6px;
+        <table>
 
-  font-size: 14px;
+          <thead>
 
-}
+            <tr>
 
- 
+              <th>Nome</th><th>E-mail</th><th>Telefone</th>
 
-input:focus {
+              <th>Cidade</th><th>Ações</th>
 
-  outline: 2px solid #93c5fd;
+            </tr>
 
-  border-color: #2563eb;
+          </thead>
 
-}
+          <tbody id="listaClientes"></tbody>
 
- 
+        </table>
 
-.botoes {
+      </div>
 
-  grid-column: 1 / -1;
+      <p id="mensagemVazia">Nenhum cliente cadastrado.</p>
 
-  display: flex;
+    </section>
 
-  gap: 10px;
+  </main>
 
-}
+  <script src="script.js"></script>
 
- 
+</body>
 
-button {
-
-  padding: 10px 16px;
-
-  border: 0;
-
-  border-radius: 6px;
-
-  background: #1769aa;
-
-  color: white;
-
-  cursor: pointer;
-
-}
-
- 
-
-button:hover { opacity: 0.88; }
-
-button.secundario { background: #64748b; }
-
-button.editar { background: #0f766e; margin-right: 5px; }
-
-button.excluir { background: #b42318; }
-
- 
-
-.lista { margin-top: 10px; }
-
-.lista input { margin: 8px 0 14px; }
-
- 
-
-.tabela-responsiva { overflow-x: auto; }
-
-table {
-
-  width: 100%;
-
-  border-collapse: collapse;
-
-  font-size: 14px;
-
-}
-
- 
-
-th, td {
-
-  padding: 10px;
-
-  border-bottom: 1px solid #e2e8f0;
-
-  text-align: left;
-
-}
-
- 
-
-th { background: #eaf2f8; }
-
-#mensagemVazia { color: #64748b; }
-
- 
-
-@media (max-width: 650px) {
-
-  body { padding: 10px; }
-
-  .container { padding: 18px; }
-
-  form { grid-template-columns: 1fr; }
-
-}
+</html>
